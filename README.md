@@ -1,1 +1,0 @@
-# johnmoise.xyz
