@@ -1,0 +1,145 @@
+@import "colorscheme.css";
+:root {
+    --h1: 1.8rem;
+    --nav: 1.2rem;
+    --h2: 1.1rem;
+    --post-title: 1rem;
+    --post-date: 0.7rem;
+}
+
+/* General Text and Link Styling */
+
+html {
+    font-family: math; 
+    color: var(--black);
+    width: 80%;
+    max-width: 18cm; /* need to update to be dyanamic with page width*/
+    margin: 1.5rem auto;
+    font-size: 5mm;
+}
+
+p {
+    margin: 0.5rem auto;
+}
+
+h1, h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    text-wrap: balance;
+}
+
+h1 {
+    text-align: center;
+    font-size: var(--h1);
+}
+
+h2 {
+    font-weight: bold;
+    font-size: var(--h2);
+    text-align: center;
+}
+
+a {
+    color: var(--blue60);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--blue40);
+    text-decoration: underline;
+}
+
+a.nav {
+    color: var(--black);
+}
+
+a:hover.nav {
+    color: var(--gray);
+}
+
+a.citation {
+    color: var(--black);
+    text-decoration: none;
+}
+
+ul > li {
+    list-style-type: square;
+}
+
+ul, ol {
+    margin-top: 0px;
+}
+
+/* Mathjax containers */
+
+mjx-c {
+    color: var(--black);
+}
+
+mjx-container {
+    margin: auto;
+    padding: 0;
+    overflow-x:auto;
+    overflow-y:hidden;
+    color: var(--black);
+}
+
+/* Images and Titles */
+
+figure {
+    counter-increment: figure;
+}
+
+figure img {
+    display: block;
+    margin: 1.5rem auto 0.75rem auto;
+    width: 80%;
+    max-width: 4.5in;
+}
+
+figcaption {
+    text-align: center;
+}
+
+figcaption:before {
+    content: 'Figure ' counter(figure) '. ';
+    font-weight: bold;
+    display: inline;
+}
+
+/* Navigation Bar */
+
+.title {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: var(--nav);
+}
+
+hr {
+    margin: 1.5rem auto;
+}
+
+/* Post titles and dates */
+
+.post-title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.1rem;
+    font-size: var(--post-title);
+    text-align:center;
+    text-wrap: balance;
+}
+
+.post-date {
+    text-align:center;
+    text-transform: uppercase;
+    color: var(--gray);
+    font-size: var(--post-date);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
