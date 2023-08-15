@@ -40,7 +40,7 @@ MathJax = {
         <div class="post-title">Bayesian Inference with Binomial Data</div>
         <div class="post-date">09 July 2023</div>
         <hr />
-        <h2 id="what-is-the-binomial-distribution">What is the Binomial Distribution?</h2>
+        <h2 id="the-binomial-distribution">The Binomial Distribution</h2>
 
 <p>The binomial distribution is a discrete probability distribution that models the
 number of successes \(x\) in a fixed number of independent trials \(n\), each
@@ -57,7 +57,7 @@ ker[Bin(x\vert n,p)] &amp; = p^{x}(1-p)^{n-x} \\
 probability of success \(p\) is unknown such that we must infer possible values
 of \(p\) from observed data.</p>
 
-<h3 id="modeling-p-with-the-beta-distribution">Modeling \(p\) with the Beta Distribution</h3>
+<h2 id="modeling-p-with-the-beta-distribution">Modeling \(p\) with the Beta Distribution</h2>
 <p>The beta distribution is a continuous probability distribution defined
 on the interval \([0,1]\) that we may use to model our uncertainty regarding the
 probability of success \(p\). The beta distribution has the following
@@ -73,7 +73,7 @@ information and \(B(\alpha,\beta)\) represents the <a href="https://en.wikipedia
 function</a> serving as a normalizing
 constant.</p>
 
-<h3 id="deriving-the-posterior-distribution">Deriving the Posterior Distribution</h3>
+<h2 id="deriving-the-posterior-distribution">Deriving the Posterior Distribution</h2>
 
 <p>We may now derive the kernel of the posterior distribution as the product of the
 kernels of the binomial likelihood and beta prior.</p>
@@ -95,7 +95,7 @@ density function:</p>
 
 \[P(p\vert\textbf{x}) \sim beta(p\vert\alpha^\prime,\beta^\prime)=\frac{p^{\alpha^\prime-1}(1-p)^{\beta^\prime-1}}{B(\alpha^\prime,\beta^\prime)}\]
 
-<h3 id="intuition-of-the-beta-hyperparameters">Intuition of the Beta Hyperparameters</h3>
+<h2 id="intuition-of-the-beta-hyperparameters">Intuition of the Beta Hyperparameters</h2>
 
 <p>The \(\alpha\) and \(\beta\) hyperparameters of the beta prior distribution can
 seem somewhat cryptic at first, until one recognizes that they represent
@@ -111,7 +111,7 @@ makes sense that the resulting posterior distribution would have parameters
 represents the addition of real observations of the data to the
 pseudo-observations of the prior.</p>
 
-<h3 id="deriving-the-posterior-predictive-distribution-ppd">Deriving the Posterior Predictive Distribution (PPD)</h3>
+<h2 id="deriving-the-posterior-predictive-distribution-ppd">Deriving the Posterior Predictive Distribution (PPD)</h2>
 
 <p>Once the data \(\textbf{x}=\{x_1,...,x_n\}\) has been incorporated into the
 prior \(P(p\vert\alpha,\beta)\) to generate the posterior distribution
@@ -164,7 +164,7 @@ binomially-distributed random variable. Let us leverage what we know about the
 conjugacy of the beta distribution to model our certainty in each seller’s
 probability \(p\) of providing a good experience.</p>
 
-<h3 id="calculating-the-posterior-distributions">Calculating the Posterior Distributions</h3>
+<h2 id="calculating-the-posterior-distributions">Calculating the Posterior Distributions</h2>
 
 <p>Assuming each seller to have an underlying beta-distributed probability \(p\) of
 providing a good experience we can calculate the posterior distributions for
@@ -179,8 +179,12 @@ P(p_3\vert\textbf{x}_3)&amp;=Beta(p_3\vert\alpha^\prime=185,\beta^\prime=17)\\
 <p>Let us graph the posterior distributions to get a sense of our relative
 certainty in the value of each seller’s \(p\).</p>
 
-<p><img width="70%" src="https://johnmoise.xyz/assets/images/betabin_fig1.svg" /></p>
-<div class="figure">Our certainty about \(p\) for each of the three sellers.</div>
+<figure>
+    <img src="https://johnmoise.xyz/assets/images/betabin_fig1.svg" style="--width:
+    4in;" />
+    <figcaption>Our certainty about
+\(p\) for each of the three sellers.</figcaption>
+</figure>
 
 <p>In analyzing the above graph, there is still no clear answer to the original
 question, as</p>
@@ -197,7 +201,7 @@ random variable; that is, we want to predict what is the most likely future draw
 from the same distribution that generated the original values. We can find the
 expected value using the posterior predictive distribution.</p>
 
-<h3 id="calculating-the-posterior-predictive-distribution">Calculating the Posterior Predictive Distribution</h3>
+<h2 id="calculating-the-posterior-predictive-distribution">Calculating the Posterior Predictive Distribution</h2>
 
 <p>As we derived above, the posterior predictive distribution for the binomial
 model is the beta-binomial distribution with the following PMF:</p>
