@@ -41,6 +41,7 @@
 html {
     font-family: math; 
     color: var(--black);
+    background-color: coral;
     width: 90%;
     max-width: 18cm; /* need to update to be dyanamic with page width*/
     margin: 1.5rem auto;
@@ -53,20 +54,18 @@ p {
 }
 
 h1, h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
     text-wrap: balance;
     text-align: center;
 }
 
 h1 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
     font-weight: normal;
     font-size: var(--h1);
 }
 
 h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
     font-weight: bold;
     font-size: var(--h2);
 }
