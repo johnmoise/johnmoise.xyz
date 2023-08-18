@@ -41,7 +41,6 @@
 html {
     font-family: math; 
     color: var(--black);
-    background-color: coral;
     width: 90%;
     max-width: 18cm; /* need to update to be dyanamic with page width*/
     margin: 1.5rem auto;
