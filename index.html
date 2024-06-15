@@ -15,18 +15,18 @@
 
 import {define} from "./_observablehq/client.js";
 
-define({id: "a4d8fb34", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
+define({id: "a81dbc30", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 let posts = [
-  {
-    title: "An Interesting Combinatorics Problem",
-    date: "June 17th, 2023",
-    url: "./blog/combprob",
-  },
   {
     title: "An Introduction to Bayesian Inference with Binomial Data",
     date: "July 9th, 2023",
     url: "./blog/betabin",
+  },
+  {
+    title: "An Interesting Combinatorics Problem",
+    date: "June 17th, 2023",
+    url: "./blog/combprob",
   },
 ];
 var container = document.createElement("div");
@@ -43,12 +43,7 @@ posts.forEach(function (post, i) {
   postTitle.classList.add("title");
   postTitle.style.cssText = "font-weight:normal;font-size:20px;";
   postTitle.appendChild(postLink);
-  // var postDate = document.createElement("span");
-  // postDate.style.cssText = "font-size:16px";
-  // postDate.innerHTML = post.date;
-  // postTitle.appendChild(postDate);
   listelement.appendChild(postTitle);
-  // listelement.appendChild(postDate);
   container.appendChild(listelement);
 });
 display(container);
@@ -67,6 +62,6 @@ return {zeroPad,posts,container};
 <main id="observablehq-main" class="observablehq">
 <h1 id="measured-uncertainty" tabindex="-1">Measured Uncertainty</h1>
 <h2 id="a-blog-about-computer-science-and-mathematics" tabindex="-1">a blog about computer science and mathematics</h2>
-<div class="observablehq observablehq--block"><!--:a4d8fb34:--></div>
+<div class="observablehq observablehq--block"><!--:a81dbc30:--></div>
 </main>
 </div>
