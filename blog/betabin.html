@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Bayesian Analysis of Binary Data | John Moïse</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air.css">
+<link rel="preload" as="style" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/tex.js">
+<link rel="modulepreload" href="../_npm/katex@0.16.10/_esm.js">
+<link rel="icon" href="../_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "11ae2428", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`x`
+))
+}});
+
+define({id: "092e3ae4", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n`
+))
+}});
+
+define({id: "543ad359", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "2bfeb558", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+P(x\vert n,p) \sim Bin(x\vert n,p)&={n \choose x}p^{x}(1-p)^{n-x} \\
+\text{with kernel } ker[Bin(x\vert n,p)] & = p^{x}(1-p)^{n-x} \\
+\end{align*}`
+))
+}});
+
+define({id: "543ad359-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "543ad359-2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "543ad359-3", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "9805a105", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*} P(p\vert\alpha,\beta) \sim beta(p\vert\alpha,\beta)&=\frac{p^{\alpha-1}(1-p)^{\beta-1}}{B(\alpha,\beta)}\\ \text{with kernel }ker[Beta(p\vert\alpha,\beta)]&=p^{\alpha-1}(1-p)^{\beta-1} \end{align*}`
+))
+}});
+
+define({id: "00d37d2c", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\alpha`
+))
+}});
+
+define({id: "88b2f222", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\beta`
+))
+}});
+
+define({id: "552ff6e9", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`B(\alpha,\beta)`
+))
+}});
+
+define({id: "5ea2edf0", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+ker[P(p\vert n,x)] & = ker[P(x\vert n,p)]\cdot ker[P(p\vert\alpha,\beta)] \\
+& = ker[Bin(x\vert n,p)]\cdot ker[Beta(p\vert\alpha,\beta)] \\
+& = p^{x}(1-p)^{n-x}\cdot p^{\alpha-1}(1-p)^{\beta-1} \\
+& = p^{x+\alpha-1}(1-p)^{n-x+\beta-1} \\
+& = ker[Beta(p\vert x+\alpha,n-x+\beta)] \\
+\end{align*}`
+))
+}});
+
+define({id: "a57cb5e6", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\alpha'=x+\alpha`
+))
+}});
+
+define({id: "8ba417f9", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\beta'=n-x+\beta`
+))
+}});
+
+define({id: "eb60cbcb", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(p\vert\textbf{x}) \sim Beta(p\vert\alpha^\prime,\beta^\prime)=\frac{p^{\alpha^\prime-1}(1-p)^{\beta^\prime-1}}{B(\alpha^\prime,\beta^\prime)}`
+))
+}});
+
+define({id: "00d37d2c-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\alpha`
+))
+}});
+
+define({id: "88b2f222-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\beta`
+))
+}});
+
+define({id: "3632f9eb", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`(86,16)`
+))
+}});
+
+define({id: "ae9a42c2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\alpha^\prime=x+\alpha`
+))
+}});
+
+define({id: "5408e50f", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\beta^\prime=n-x+\beta`
+))
+}});
+
+define({id: "62c7a7de", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\textbf{x}=\{x_1,...,x_n\}`
+))
+}});
+
+define({id: "d339bb49", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`P(p\vert\alpha,\beta)`
+))
+}});
+
+define({id: "d467689d", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`P(p\vert\alpha^\prime,\beta^\prime)`
+))
+}});
+
+define({id: "bd8c50f1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`P(\tilde{x} \vert \textbf{x})`
+))
+}});
+
+define({id: "3963187e", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\tilde{x}`
+))
+}});
+
+define({id: "543ad359-4", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "3c675dd7", mode: "inline", inputs: ["display"], body: async (display) => {
+display(await(
+`\tilde{x}`
+))
+}});
+
+define({id: "0bfc58a5", mode: "inline", inputs: ["display"], body: async (display) => {
+display(await(
+`\textbf{x}=\{x_1,...,x_n\}`
+))
+}});
+
+define({id: "5b878a4f", mode: "inline", inputs: ["display"], body: async (display) => {
+display(await(
+`\theta\in\Theta`
+))
+}});
+
+define({id: "a8e5dcea", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\Theta`
+))
+}});
+
+define({id: "ef4ff004", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`PPD\stackrel{\text{def}}{=}
+P(\tilde{x}|\textbf{x})\stackrel{\text{def}}{=}\int_{\theta}P(x\vert\theta)P(\theta\vert\textbf{x})d\theta`
+))
+}});
+
+define({id: "faf2ebc8", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\theta`
+))
+}});
+
+define({id: "543ad359-5", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "6e8cfc72", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+PPD&= P(\tilde{x}|n,\alpha^\prime,\beta^\prime)\\
+&=\int_{p}P(x\vert n,p)P(p\vert\alpha^\prime,\beta^\prime)dp \\
+& = \int_0^1Bin(x\vert n,p)Beta(p\vert\alpha',\beta')dp \\
+& = {n \choose x}\frac{1}{B(\alpha',\beta')}\int_0^{1}p^{x+\alpha'-1}(1-p)^{n-x+\beta'-1}dp \\
+& = {n \choose x}\frac{B(x+\alpha',n-x+\beta')}{B(\alpha',\beta')} \\
+& = betaBin(n,\alpha',\beta') \\
+\end{align*}`
+))
+}});
+
+define({id: "092e3ae4-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n`
+))
+}});
+
+define({id: "d8ad578e", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\alpha^\prime`
+))
+}});
+
+define({id: "e1271455", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\beta^\prime`
+))
+}});
+
+define({id: "543ad359-6", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "01e3aac8", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`(1-p)`
+))
+}});
+
+define({id: "543ad359-7", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "543ad359-8", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "a41ac8ef", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`Beta(\alpha=1,\beta=1)`
+))
+}});
+
+define({id: "e89fc644", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+P(p_1\vert\textbf{x}_1)&=Beta(p_1\vert\alpha^\prime=11,\beta^\prime=1)\\
+P(p_2\vert\textbf{x}_2)&=Beta(p_2\vert\alpha^\prime=49,\beta^\prime=3)\\
+P(p_3\vert\textbf{x}_3)&=Beta(p_3\vert\alpha^\prime=185,\beta^\prime=17)\\
+\end{align*}`
+))
+}});
+
+define({id: "543ad359-9", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "543ad359-10", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p`
+))
+}});
+
+define({id: "8997447a", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+P(\tilde{x}|n,\alpha^\prime,\beta^\prime) &\sim betaBin(n,\alpha',\beta') \\
+&= {n \choose x}\frac{B(x+\alpha',n-x+\beta')}{B(\alpha',\beta')}
+\end{align*}`
+))
+}});
+
+define({id: "c16ab076", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n=1`
+))
+}});
+
+define({id: "311dc9d1", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+P(\tilde{x}=1|n=1,\alpha^\prime,\beta^\prime) &\sim betaBin(n=1,\alpha',\beta')\\
+&= {1 \choose 1}\frac{B(1+\alpha',1-1+\beta')}{B(\alpha',\beta')} \\
+&= \frac{B(1+\alpha',\beta')}{B(\alpha',\beta')} \\
+&= \frac{\alpha'}{\alpha'+\beta'}
+\end{align*}`
+))
+}});
+
+define({id: "a844a895", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+P(\tilde{x}=1|\textbf{x}_1)
+&= \frac{11}{11+1}\\
+&= .9167 \\
+&= 91.7\% \\
+P(\tilde{x}=1|\textbf{x}_2)
+&= \frac{49}{49+3}\\
+&= .9423 \\
+&= 94.2\% \\
+P(\tilde{x}=1|\textbf{x}_3)
+&= \frac{185}{185+17}\\
+&= .9158 \\
+&= 91.6\%
+\end{align*}`
+))
+}});
+
+</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>On This Page</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#the-beta-distribution">The Beta Distribution</a></li>
+<li class="observablehq-secondary-link"><a href="#deriving-the-posterior-distribution">Deriving the Posterior Distribution</a></li>
+<li class="observablehq-secondary-link"><a href="#deriving-the-posterior-predictive-distribution">Deriving the Posterior Predictive Distribution</a></li>
+<li class="observablehq-secondary-link"><a href="#worked-example%3A-amazon-seller-reviews">Worked Example: Amazon Seller Reviews</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span><span><a href="../publications">Publications</a></span></div></div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="bayesian-analysis-of-binary-data" tabindex="-1">Bayesian Analysis of Binary Data</h1>
+<h2 id="july-9th%2C-2023" tabindex="-1">July 9th, 2023</h2>
+<p>The binomial distribution is a discrete probability distribution that models the
+number of successes <observablehq-loading></observablehq-loading><!--:11ae2428:--> in a fixed number of independent trials <observablehq-loading></observablehq-loading><!--:092e3ae4:-->, each
+with the same probability of success <observablehq-loading></observablehq-loading><!--:543ad359:-->. The probability mass function (PMF)
+of the binomial distribution takes the following form:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:2bfeb558:--></div>
+<p>It is often the case when investigating systems containing binary-data
+generating processes that the underlying probability of success <observablehq-loading></observablehq-loading><!--:543ad359-1:--> is
+unknown such that we must infer possible values of <observablehq-loading></observablehq-loading><!--:543ad359-2:--> from observed data.</p>
+<h2 id="the-beta-distribution" tabindex="-1">The Beta Distribution</h2>
+<p>The beta distribution is a continuous probability distribution defined
+on the interval from 0 to 1 that we may use to model our uncertainty regarding the
+probability of success <observablehq-loading></observablehq-loading><!--:543ad359-3:-->. The beta distribution has the following
+probability density function (PDF):</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:9805a105:--></div>
+<p>where <observablehq-loading></observablehq-loading><!--:00d37d2c:--> and <observablehq-loading></observablehq-loading><!--:88b2f222:--> are hyperparameters encoding prior certainty or
+information and <observablehq-loading></observablehq-loading><!--:552ff6e9:--> represents the <a href="https://en.wikipedia.org/wiki/Beta_function" target="_blank" rel="noopener noreferrer">Beta
+function</a> serving as a normalizing
+constant.</p>
+<h2 id="deriving-the-posterior-distribution" tabindex="-1">Deriving the Posterior Distribution</h2>
+<p>We may now derive the kernel of the posterior distribution as the product of the
+kernels of the binomial likelihood and beta prior.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:5ea2edf0:--></div>
+<p>Thus, the posterior distribution is a beta distribution with hyperparameters
+<observablehq-loading></observablehq-loading><!--:a57cb5e6:--> and <observablehq-loading></observablehq-loading><!--:8ba417f9:-->, proving the conjugacy of the binomial
+and beta distributions.</p>
+<p>After renormalizing, the posterior distribution takes the following probability
+density function:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:eb60cbcb:--></div>
+<p>The <observablehq-loading></observablehq-loading><!--:00d37d2c-1:--> and <observablehq-loading></observablehq-loading><!--:88b2f222-1:--> hyperparameters of the beta prior distribution can
+seem somewhat cryptic at first, until one recognizes that they represent
+pseudo-observations of the prior. A beta prior with hyperparameters (1,1) is
+used as an uninformative prior as it represents a system where one has observed
+no trial successes yet both success and failure are possible (represented by a
+single pseudo-observation for both success and failure). Meanwhile a beta prior
+of <observablehq-loading></observablehq-loading><!--:3632f9eb:--> can be understood as a system in which there have been 100
+trials, with 85 successes and 15 failures informing an otherwise uninformed
+prior. Thus in the process of updating our beta prior using Bayes' theorem, it
+makes sense that the resulting posterior distribution would have parameters
+<observablehq-loading></observablehq-loading><!--:ae9a42c2:--> and <observablehq-loading></observablehq-loading><!--:5408e50f:--> as it simply
+represents the addition of real observations of the data to the
+pseudo-observations of the prior.</p>
+<h2 id="deriving-the-posterior-predictive-distribution" tabindex="-1">Deriving the Posterior Predictive Distribution</h2>
+<p>Once the data <observablehq-loading></observablehq-loading><!--:62c7a7de:--> has been incorporated into the
+prior <observablehq-loading></observablehq-loading><!--:d339bb49:--> to generate the posterior distribution
+<observablehq-loading></observablehq-loading><!--:d467689d:-->, we may then leverage the uncertainty
+embedded within it to calculate a posterior predictive distribution
+<observablehq-loading></observablehq-loading><!--:bd8c50f1:-->. The PPD allows us to predict the probability
+of some future value <observablehq-loading></observablehq-loading><!--:3963187e:--> drawn from the same distribution as the data
+that we observed, while still respecting our uncertainty about <observablehq-loading></observablehq-loading><!--:543ad359-4:-->.</p>
+<p>More formally, the PPD is the distribution of possible unobserved values
+<observablehq-loading></observablehq-loading><!--:3c675dd7:--> conditioned on the set of previously observed values
+<observablehq-loading></observablehq-loading><!--:0bfc58a5:--> which are drawn from a distribution that depends
+on parameter <observablehq-loading></observablehq-loading><!--:5b878a4f:--> where <observablehq-loading></observablehq-loading><!--:a8e5dcea:--> is the parameter space. The
+posterior predictive distribution is calculated by marginalizing the likelihood
+over the posterior.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:ef4ff004:--></div>
+<p>In the case of the binomial model, the parameter of interest <observablehq-loading></observablehq-loading><!--:faf2ebc8:--> is the
+probability of success <observablehq-loading></observablehq-loading><!--:543ad359-5:-->. Rewriting the above and simplifying,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:6e8cfc72:--></div>
+<p>Thus, the posterior predictive distribution follows the beta-Binomial distribution with parameters <observablehq-loading></observablehq-loading><!--:092e3ae4-1:-->, <observablehq-loading></observablehq-loading><!--:d8ad578e:-->, and <observablehq-loading></observablehq-loading><!--:e1271455:-->.</p>
+<h2 id="worked-example%3A-amazon-seller-reviews" tabindex="-1">Worked Example: Amazon Seller Reviews</h2>
+<p>All of this theory is great and all, but let's see about applying it to a
+relevant real-world example: buying something from Amazon.</p>
+<p>Imagine you are buying a book from Amazon and have the option of buying from
+three different sellers. Seller 1 has a 100% positive rating with 10 reviews.
+Seller 2 has a 96% positive average rating with 50 reviews. Seller 3 has a 92%
+positive average rating with 200 reviews. Assuming each seller has an underlying
+probability <observablehq-loading></observablehq-loading><!--:543ad359-6:--> of providing a good experience and a complementary probability
+<observablehq-loading></observablehq-loading><!--:01e3aac8:--> of providing a poor experience, with which seller will you have the
+highest probability of having a good shopping experience?</p>
+<p>We can use the Beta-binomial model derived above to answer this question as the
+situation can be paramterized as a single trial (i.e. Bernoulli trial) of a
+binomially-distributed random variable. Let us leverage what we know about the
+conjugacy of the beta distribution to model our certainty in each seller's
+probability <observablehq-loading></observablehq-loading><!--:543ad359-7:--> of providing a good experience.</p>
+<h3 id="calculating-the-posterior-distributions" tabindex="-1">Calculating the Posterior Distributions</h3>
+<p>Assuming each seller to have an underlying beta-distributed probability <observablehq-loading></observablehq-loading><!--:543ad359-8:--> of
+providing a good experience we can calculate the posterior distributions for
+each given an uninformative prior <observablehq-loading></observablehq-loading><!--:a41ac8ef:--> and the data.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:e89fc644:--></div>
+<p>Let us graph the posterior distributions to get a sense of our relative
+certainty in the value of each seller's <observablehq-loading></observablehq-loading><!--:543ad359-9:-->.</p>
+<!-- ![a graph](./betabin_fig1.svg) -->
+<!-- {% include figure.html file="betabin_fig1.svg" caption="Our certainty about -->
+<!-- \(p\) for each of the three sellers." width="4in" %} -->
+<p>In analyzing the above graph, there is still no clear answer to the original
+question, as Seller 1 has the highest maximum a posteriori, but there is a lot
+of uncertainty in that value, with the 95% HDI including values down to 0.76.
+Seller 2 and Seller 3 have considerable overlap in their posterior densities,
+although it is clear that for almost all values of <observablehq-loading></observablehq-loading><!--:543ad359-10:-->, Seller 2 is at least as
+good, if not better, than Seller 3.</p>
+<p>This is okay, as the quantity of interest is actually the expected value of the
+random variable; that is, we want to predict what is the most likely future draw
+from the same distribution that generated the original values. We can find the
+expected value using the posterior predictive distribution.</p>
+<h3 id="calculating-the-posterior-predictive-distribution" tabindex="-1">Calculating the Posterior Predictive Distribution</h3>
+<p>As we derived above, the posterior predictive distribution for the binomial
+model is the beta-binomial distribution with the following PMF:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:8997447a:--></div>
+<p>Using the <a href="https://en.wikipedia.org/wiki/Beta_function#Properties" target="_blank" rel="noopener noreferrer">factorial definition of the beta
+function</a>, we can
+simplify the above equation for our purposes, as we are interested in the
+probability that the next draw is 1 (i.e. we have a good experience with the
+seller) given <observablehq-loading></observablehq-loading><!--:c16ab076:--> (in our next single order). Thus,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:311dc9d1:--></div>
+<p>We now calculate the expected value for each of the three sellers.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:a844a895:--></div>
+<p>It is settled! Given the collected data, the seller with the highest probability
+of giving a good experience is Seller #2, with an probability of 94.2%. The
+other two options, sellers #1 and #3 are nearly identical with probabilities of
+91.7% and 91.6% respectively.</p>
+</main>
+</div>

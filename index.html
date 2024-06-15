@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Measured Uncertainty | John Moïse</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="icon" href="./_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+
+define({id: "a4d8fb34", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
+const zeroPad = (num, places) => String(num).padStart(places, "0");
+let posts = [
+  {
+    title: "An Interesting Combinatorics Problem",
+    date: "June 17th, 2023",
+    url: "./blog/combprob",
+  },
+  {
+    title: "An Introduction to Bayesian Inference with Binomial Data",
+    date: "July 9th, 2023",
+    url: "./blog/betabin",
+  },
+];
+var container = document.createElement("div");
+container.style.cssText = "margin-top: 3rem;";
+posts.forEach(function (post, i) {
+  var listelement = document.createElement("div");
+  listelement.style.cssText = "margin-top: 1.5rem;margin-bottom 1.5rem;";
+  // "border-left: solid 2px var(--theme-foreground);border-radius:0px;padding: 0.5rem 0rem 0.5rem 1.1rem;margin-top: 1.5rem;margin-bottom 1.5rem;";
+  var postLink = document.createElement("a");
+  postLink.style.cssText = "color:inherit;";
+  postLink.href = post.url;
+  postLink.innerHTML = zeroPad(posts.length - i, 2) + ". " + post.title;
+  var postTitle = document.createElement("h2");
+  postTitle.classList.add("title");
+  postTitle.style.cssText = "font-weight:normal;font-size:20px;";
+  postTitle.appendChild(postLink);
+  // var postDate = document.createElement("span");
+  // postDate.style.cssText = "font-size:16px";
+  // postDate.innerHTML = post.date;
+  // postTitle.appendChild(postDate);
+  listelement.appendChild(postTitle);
+  // listelement.appendChild(postDate);
+  container.appendChild(listelement);
+});
+display(container);
+return {zeroPad,posts,container};
+}});
+
+</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="./">Blog</a></span><span>Projects</span><span><a href="./publications">Publications</a></span></div></div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="measured-uncertainty" tabindex="-1">Measured Uncertainty</h1>
+<h2 id="a-blog-about-computer-science-and-mathematics" tabindex="-1">a blog about computer science and mathematics</h2>
+<div class="observablehq observablehq--block"><!--:a4d8fb34:--></div>
+</main>
+</div>

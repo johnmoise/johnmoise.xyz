@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>The Monty Hall Problem | John Moïse</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air.css">
+<link rel="preload" as="style" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/tex.js">
+<link rel="modulepreload" href="../_npm/katex@0.16.10/_esm.js">
+<link rel="icon" href="../_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "2b5fa782", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\frac{1}{2}`
+))
+}});
+
+define({id: "676e682e", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\vec{D}_{prior}=\left[\frac{1}{3},\frac{1}{3},\frac{1}{3}\right]`
+))
+}});
+
+define({id: "bcea66ba", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`I`
+))
+}});
+
+define({id: "f61bf1eb", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(\vec{D}_i\vert I)=\frac{P(I\vert\vec{D}_i)\cdot P(\vec{D}_i)}{P(I)}`
+))
+}});
+
+define({id: "ccdac33f", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`P(I)`
+))
+}});
+
+define({id: "bfe26e99", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(\vec{D}_1\vert I)=\frac{\frac{1}{2}\cdot \frac{1}{3}}{\frac{1}{6}+\frac{1}{3}}=\frac{1}{3}`
+))
+}});
+
+define({id: "d562850b", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(\vec{D}_2\vert I)=\frac{1\cdot \frac{1}{3}}{\frac{1}{6}+\frac{1}{3}}=\frac{2}{3}`
+))
+}});
+
+define({id: "efd91b11", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(\vec{D}_3\vert I)=\frac{0\cdot \frac{1}{3}}{\frac{1}{6}+\frac{1}{3}}=0`
+))
+}});
+
+define({id: "6033f6f0", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\vec{D}_{posterior}=\left[\frac{1}{3},\frac{2}{3},0\right]`
+))
+}});
+
+define({id: "3bf0ace1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\frac{2}{3}`
+))
+}});
+
+define({id: "92c65e46", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\frac{1}{3}`
+))
+}});
+
+</script>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span><span><a href="../publications">Publications</a></span></div></div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="the-monty-hall-problem" tabindex="-1">The Monty Hall Problem</h1>
+<h2 id="august-27th%2C-2023" tabindex="-1">August 27th, 2023</h2>
+<p>The Monty Hall problem, stated below, is a statistical word problem based on the American television game show <em>Let’s Make a Deal</em> and named after the show’s original host Monty Hall.</p>
+<div class="card" style="max-width: 550px; text-wrap:
+    balance;">
+    <h2 style="text-align: center;">The Monty Hall Problem</h2>
+<blockquote>
+Suppose you are on a game show and you are given a choice of three doors. Behind one door is a prize; behind the other two doors, nothing. After you pick a door, the host opens one of the remaining two doors to reveal nothing. The host now offers that you may switch you choice to the other still-closed door or stay with your original choice. Is it in your advantage to switch?</blockquote>
+</div>
+<p>If you are like me, or most other people for that matter, your instinct likely
+tells you that there should be no difference between switching or staying - that
+the probability of revealing a prize in either case should be
+<observablehq-loading></observablehq-loading><!--:2b5fa782:-->.
+However, after more careful consideration, one realizes that the host opening a
+door and revealing nothing provides information about the door that he
+chose not open - that is, the door to which you now have the option to switch.
+Using this information, we can update the probability of the prize being behind
+that door relative to the currently chosen door.</p>
+<h2 id="a-bayesian-solution" tabindex="-1">A Bayesian Solution</h2>
+<p>First, before any choices have been made, the doors are exchangable. That is,
+mathematically there is no information known about any given door that would
+make it more or less likely to contain the prize. This argument allows us to
+assign equal prior probability to each door, which we will represent by the following
+vector:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:676e682e:--></div>
+<p>In addition, this allows us by symmetry to only consider the case when the
+player chooses the first door, as any other choice is equivalent (one might
+imagine relabeling the doors such that whichever chosen door is considered first).</p>
+<p>The host then chooses to reveal to the player one of the remaining two doors,
+which he knows to conceal nothing. The two doors that the host chooses from are
+also exchangable among themselves (again, as there is no information provided to
+the player that would favor one door over the other). As such we again by
+symmetry can collapse the problem to only consider the scenario in which the
+host opens the third door.</p>
+<p>Let <observablehq-loading></observablehq-loading><!--:bcea66ba:--> represents the information that the player chose the first door and
+the host revealed the third door to be empty. Bayes' theorem can now be applied
+to calculate the corresponding posterior probability of each door.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:f61bf1eb:--></div>
+<p>where <observablehq-loading></observablehq-loading><!--:ccdac33f:--> represents a normalizing constant. Applying the above theorem,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:bfe26e99:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:d562850b:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:efd91b11:--></div>
+<p>which gives us the final vector of posterior probabilities:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:6033f6f0:--></div>
+<p>As we can see, the probability of the prize being behind the door neither chosen
+by the player or host is <observablehq-loading></observablehq-loading><!--:3bf0ace1:-->, while the probability of the prize
+being behind the door originally chosen by the player is <observablehq-loading></observablehq-loading><!--:92c65e46:-->. Due to
+the exchangability and symmetry arguments above, this result extends to all
+possible combinations of player and host selections—regardless of the door
+number, it is always in the player's best interest to switch to the door not
+chosen by the host.</p>
+</main>
+</div>

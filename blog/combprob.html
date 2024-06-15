@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>An Interesting Combinatorics Problem | John Moïse</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air.css">
+<link rel="preload" as="style" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="../_npm/katex@0.16.10/dist/katex.min.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/tex.js">
+<link rel="modulepreload" href="../_npm/katex@0.16.10/_esm.js">
+<link rel="icon" href="../_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "7fac2155", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`m`
+))
+}});
+
+define({id: "092e3ae4", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n`
+))
+}});
+
+define({id: "092e3ae4-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n`
+))
+}});
+
+define({id: "a48096c2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`T`
+))
+}});
+
+define({id: "292babb6", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`S`
+))
+}});
+
+define({id: "292babb6-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`S`
+))
+}});
+
+define({id: "82e0ed16", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`i`
+))
+}});
+
+define({id: "69884122", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\left[\binom{n-|S|}{m}/\binom{n}{m}\right]^i`
+))
+}});
+
+define({id: "82e0ed16-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`i`
+))
+}});
+
+define({id: "4eee9307", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`P(T>i)`
+))
+}});
+
+define({id: "f753c0a2", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`P(T>i)=\sum_{s=1}^{n}\binom{n}{s}(-1)^{s+1}\left[\binom{n-s}{m}/\binom{n}{m}\right]^i \tag{1}`
+))
+}});
+
+define({id: "11f4be74", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+E(T)&=\sum_{i=0}^{\infty}P(T>i) \\
+&=\sum_{i=0}^{\infty}\sum_{s=1}^{n}\binom{n}{s}(-1)^{s+1}\left[\binom{n-s}{m}/\binom{n}{m}\right]^i \tag{2} \\
+&=\sum_{s=1}^{n}\binom{n}{s}(-1)^{s+1}\frac{1}{1-\binom{n-s}{m}/\binom{n}{m}} \\
+&=\binom{n}{m}\sum_{s=1}^{n}\frac{(-1)^{s+1}\binom{n}{s}}{\binom{n}{m}-\binom{n-s}{m}} \\
+\end{align*}`
+))
+}});
+
+define({id: "662c2ea2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n=10`
+))
+}});
+
+define({id: "79c6177a", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`m=3`
+))
+}});
+
+define({id: "092e3ae4-2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`n`
+))
+}});
+
+define({id: "7fac2155-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`m`
+))
+}});
+
+</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>On This Page</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#a-solution-by-analogy">A Solution by Analogy</a></li>
+<li class="observablehq-secondary-link"><a href="#deriving-a-formula">Deriving a Formula</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span><span><a href="../publications">Publications</a></span></div></div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="an-interesting-combinatorics-problem" tabindex="-1">An Interesting Combinatorics Problem</h1>
+<h2 id="june-17th%2C-2023" tabindex="-1">June 17th, 2023</h2>
+<p>A few weeks ago, I was preparing for the pharmacology NBME subject examination
+and stumbled across an applied combinatorics problem with a rather interesting
+solution.</p>
+<p>I had completed the UWorld pharmacology question bank and with about 10 days
+remaining until the exam, I figured I could go through all of the questions
+again as a final review. However, UWorld provides no way to reset the question
+bank without buying another subscription. So, to accomplish my goal of redoing
+the question bank, I settled on the next best thing: generating tests that were
+random samples of 40 questions (the maximum size allowed) from the bank while
+wondering how many of these 40-question tests I would need to complete such that
+I could be reasonably certain that I would see every question of the question
+bank.</p>
+<h2 id="a-solution-by-analogy" tabindex="-1">A Solution by Analogy</h2>
+<p>After a bit of searching on the internet, I stumbled across the following forum post on Mathematics Stack Exchange:</p>
+<div class="card" style="max-width: 600px"> <h2><a href="https://math.stackexchange.com/questions/3278200" target="_blank" rel="noopener noreferrer">Iteratively replacing 3  chocolates in a box of 10</a></h2> <h3>asked Jun 29, 2019 by Sal.Cognato</h3>
+    <blockquote style="text-align:justify;">“In the fridge there is a box containing 10 expensive high quality
+        Belgian chocolates, which my mum keeps for visitors. Every day, when mum
+        leaves home for work, I secretly pick 3 chocolates at random, I eat them
+        and replace them with ordinary cheap ones that have exactly the same
+        wrapping. On the next day I do the same, obviously risking to eat some
+        of the cheap ones. How many days on average will it take for the full
+        replacement of the expensive chocolates with cheap ones?”</blockquote> </div>
+<p>My question and the question posed on the forum are materially equivalent.
+Specifically, we sample <observablehq-loading></observablehq-loading><!--:7fac2155:--> objects (whether question or chocolate) with
+replacement from a collection of <observablehq-loading></observablehq-loading><!--:092e3ae4:--> objects and ask how many samples on
+average are required to have sampled each object at least once.</p>
+<h2 id="deriving-a-formula" tabindex="-1">Deriving a Formula</h2>
+<p>Let us derive the formula in the context of the Belgian chocolates. Suppose
+there are <observablehq-loading></observablehq-loading><!--:092e3ae4-1:--> expensive chocolates and each day you secretely pick <em>m</em>
+chocolates for replacement. Let <observablehq-loading></observablehq-loading><!--:a48096c2:--> be a random variable representing the number
+of days it takes to replace all the expensive chocolates. For a given set <observablehq-loading></observablehq-loading><!--:292babb6:--> of
+chocolates, the probability that you have managed to avoid <observablehq-loading></observablehq-loading><!--:292babb6-1:--> in each of the
+first <observablehq-loading></observablehq-loading><!--:82e0ed16:--> days is</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:69884122:--></div>
+<p>The probability that you have managed to avoid at least one chocolate during the
+first <observablehq-loading></observablehq-loading><!--:82e0ed16-1:--> days is equal to the alternating sum over all subsets according
+to the <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle" target="_blank" rel="noopener noreferrer">principle of
+inclusion-exclusion</a>.
+We may group these probabilities by the number of elements to succinctly define
+<observablehq-loading></observablehq-loading><!--:4eee9307:-->.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:f753c0a2:--></div>
+<p>Using the <a href="https://math.stackexchange.com/questions/63756/tail-sum-for-expectation" target="_blank" rel="noopener noreferrer">tail sum for expectation
+formula</a>,
+we are able to derive an expression for the expectation using Equation 1.
+Because the series in Equation 2 <a href="https://en.wikipedia.org/wiki/Absolute_convergence" target="_blank" rel="noopener noreferrer">converges
+absolutely</a>, we
+can rearrange the summations and simplify using the <a href="https://en.wikipedia.org/wiki/Geometric_series#Coefficient_a" target="_blank" rel="noopener noreferrer">formula for the sum of an
+infinite geometric
+series</a> to derive a formula that will allow us to calculate the answer to our question.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:11f4be74:--></div>
+<p>Using the above derived formula on the Belgian chocolate problem posed in the
+forum post (<observablehq-loading></observablehq-loading><!--:662c2ea2:--> and <observablehq-loading></observablehq-loading><!--:79c6177a:-->), we would expect it to take, on average, 9.05 days to
+replace all of the chocolates. Meanwhile, for the UWorld pharmacology question
+bank problem with <observablehq-loading></observablehq-loading><!--:092e3ae4-2:--> of 639 and <observablehq-loading></observablehq-loading><!--:7fac2155-1:--> of 40, we would expect it take
+109.45 tests on average to see every question of the question bank.</p>
+</main>
+</div>
