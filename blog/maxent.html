@@ -1,29 +1,347 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>John Moïse</title>
+<title>Maximum Entropy Probability Distributions | John Moïse</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../_observablehq/theme-air.css">
+<link rel="preload" as="style" href="../_npm/katex@0.16.10/dist/katex.min.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="stylesheet" type="text/css" href="../_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="../_npm/katex@0.16.10/dist/katex.min.css">
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/tex.js">
+<link rel="modulepreload" href="../_npm/katex@0.16.10/_esm.js">
 <link rel="icon" href="../_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
 <script type="module">
 
-import "../_observablehq/client.js";
+import {define} from "../_observablehq/client.js";
+
+define({id: "2c2f5735", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p(x)`
+))
+}});
+
+define({id: "11ae2428", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`x`
+))
+}});
+
+define({id: "8a6928ae", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`a`
+))
+}});
+
+define({id: "142c9965", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`b`
+))
+}});
+
+define({id: "c195ac56", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\int_a^b p(x) dx=1`
+))
+}});
+
+define({id: "44c28188", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`H`
+))
+}});
+
+define({id: "3f2c3fd4", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`H = -\int_a^b p(x) \log p(x) dx`
+))
+}});
+
+define({id: "f8e65f8e", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`F`
+))
+}});
+
+define({id: "2709251b", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`F = -\int_a^b p(x) \log p(x) dx - \lambda\left(\int_a^b p(x) dx - 1\right)
+\\[0.5em]
+F = \int_a^b\left[-p(x)\log p(x) -\lambda\left(p(x)-\frac{1}{b-a}\right)\right] dx`
+))
+}});
+
+define({id: "2c2f5735-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p(x)`
+))
+}});
+
+define({id: "f6645a83", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\frac{\partial F}{\partial p(x)} - \frac{d}{dx}\frac{\partial F}{\partial p'(x)} = 0 \\[0.5em]
+\frac{\partial}{\partial p(x)}\left[-p(x)\log p(x) -\lambda\left(p(x)-\frac{1}{b-a}\right)\right]=0 \\[0.5em]
+-\log p(x) -1-\lambda = 0 \\[0.5em]
+p(x) = e^{-1-\lambda}`
+))
+}});
+
+define({id: "2c2f5735-2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p(x)`
+))
+}});
+
+define({id: "8667469d", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\lambda`
+))
+}});
+
+define({id: "72442fe7", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\int_a^b p(x) dx=1 \\[0.5em]
+\int_a^b e^{-1-\lambda} dx=1 \\[0.5em]
+e^{-1-\lambda}\int_a^b dx = 1 \\[0.5em]
+e^{-1-\lambda} = \frac{1}{b-a} \\[0.5em]
+p(x) = \frac{1}{b-a}`
+))
+}});
+
+define({id: "598b833e", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\mu`
+))
+}});
+
+define({id: "691ff5e5", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\sigma^2`
+))
+}});
+
+define({id: "aafa486e", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\mathbb{R}`
+))
+}});
+
+define({id: "c12e7f57", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\int_{-\infty}^{\infty} p(x) dx=1 \\[0.5em]
+H = -\int_{-\infty}^{\infty} p(x) \log p(x) dx`
+))
+}});
+
+define({id: "70c2fe9d", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\mu = \int_{-\infty}^{\infty}p(x)x dx \\[0.5em]
+\sigma^2 = \int_{-\infty}^{\infty}p(x)(x-\mu)^2 dx`
+))
+}});
+
+define({id: "f8e65f8e-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`F`
+))
+}});
+
+define({id: "0c0f3047", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+F = & - \int_{-\infty}^{\infty} p(x) \log p(x) dx \\
+& - \lambda_0 \left( \int_{-\infty}^\infty p(x)dx - 1 \right) \\
+& - \lambda_1 \left( \int_{-\infty}^\infty p(x)(x - \mu)^2 dx - \sigma^2\right)
+\end{align*}`
+))
+}});
+
+define({id: "4d8e1d93", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`F = \int_{-\infty}^{\infty} \left[ -p(x)\log p(x) - \lambda_0 p(x) - \lambda_1
+p(x)(x-\mu)^2\right] dx`
+))
+}});
+
+define({id: "2c2f5735-3", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p(x)`
+))
+}});
+
+define({id: "2905bcc5", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\frac{\partial F}{\partial p(x)} - \frac{d}{dx}\frac{\partial F}{\partial p'(x)} = 0 \\[0.5em]
+-\log p(x) -1-\lambda_0 - \lambda_1(x-\mu)^2 = 0 \\[0.5em]
+p(x) = e^{-1-\lambda_0 - \lambda_1(x-\mu)^2}`
+))
+}});
+
+define({id: "0f322516", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+\int p(x)dx = 1 & = \int e^{-1-\lambda_0 - \lambda_1(x-\mu)^2}dx \\
+1 & = \int e^{-1-\lambda_0 - \lambda_1 z^2}dz \\
+1 & = e^{-1-\lambda_0}\int e^{-\lambda_1 z^2}dz \\
+e^{1+\lambda_0} & = \int e^{-\lambda_1 z^2}dz \\
+e^{1+\lambda_0} & = \sqrt{\frac{\pi}{\lambda_1}} \\
+\end{align*}`
+))
+}});
+
+define({id: "337d0c78", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+\int p(x)(x-\mu)^2 dx = \sigma^2 & = \int e^{-1-\lambda_0 - \lambda_1(x-\mu)^2}(x-\mu)^2 dx \\
+\sigma^2 & = \int e^{-1-\lambda_0 - \lambda_1 z^2}z^2 dz \\
+\sigma^2 e^{1+\lambda_0} & = \int e^{- \lambda_1 z^2}z^2 dz \\
+\sigma^2 e^{1+\lambda_0} & = \frac{1}{2}\sqrt{\frac{\pi}{\lambda_1^3}} \\
+\sigma^2 e^{1+\lambda_0} & = \frac{1}{2\lambda_1}\sqrt{\frac{\pi}{\lambda_1}} \\
+2\lambda_1 \sigma^2 e^{1+\lambda_0} & = \sqrt{\frac{\pi}{\lambda_1}} \\
+\end{align*}`
+))
+}});
+
+define({id: "c5eccde7", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\lambda_1`
+))
+}});
+
+define({id: "e142ad7b", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`e^{1+\lambda_0} = \sqrt{\frac{\pi}{\lambda_1}} = 2\lambda_1 \sigma^2 e^{1+\lambda_0} \\[0.5em]
+1 =  2\lambda_1 \sigma^2 \\[0.5em]
+\lambda_1 = \frac{1}{2\sigma^2}`
+))
+}});
+
+define({id: "c5504353", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\lambda_0`
+))
+}});
+
+define({id: "3ab4481f", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+e^{1+\lambda_0} & = \sqrt{\frac{\pi}{\lambda_1}} \\
+e^{1+\lambda_0} & = \sqrt{2\sigma^2\pi} \\
+1+\lambda_0 & = \log\sqrt{2\sigma^2\pi} \\
+\lambda_0 & = \log\sqrt{2\sigma^2\pi} - 1 \\
+\end{align*}`
+))
+}});
+
+define({id: "2c2f5735-4", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`p(x)`
+))
+}});
+
+define({id: "c76a089c", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{align*}
+p(x) & = e^{-1-\lambda_0 - \lambda_1(x-\mu)^2} \\
+& = e^{-\log\sqrt{2\sigma^2\pi} - \frac{1}{2\sigma^2}(x-\mu)^2} \\
+& = \frac{1}{\sqrt{2\sigma^2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\
+\end{align*}`
+))
+}});
 
 </script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
+<div>On This Page</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#why-are-maximum-entropy-probability-distributions-useful%3F">Why are maximum entropy probability distributions useful?</a></li>
+<li class="observablehq-secondary-link"><a href="#deriving-the-maximum-entropy-probability-distribution-of-a-bounded-random-variable-with-no-additional-constraints">Deriving the maximum entropy probability distribution of a bounded random variable with no additional constraints</a></li>
+<li class="observablehq-secondary-link"><a href="#deriving-the-maximum-entropy-probability-distribution-of-a-random-variable-with-a-fixed-mean-and-variance">Deriving the maximum entropy probability distribution of a random variable with a fixed mean and variance</a></li>
+</ol>
 </nav>
 </aside>
 <div id="observablehq-center">
 <header id="observablehq-header">
-<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span><span><a href="../publications">Publications</a></span></div></div>
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span></div></div>
 </header>
 <main id="observablehq-main" class="observablehq">
+<h1 id="maximum-entropy-probability-distributions" tabindex="-1">Maximum Entropy Probability Distributions</h1>
+<h2 id="march-29th%2C-2024" tabindex="-1">March 29th, 2024</h2>
+<p>In information theory, the entropy of a random variable is a measure of the
+uncertainty inherent to the distribution of the variable across its possible
+outcomes. In this post, I derive the uniform and normal distributions as maximum
+entropy distributions under different constraints using information-theoretic
+first principles.</p>
+<h2 id="why-are-maximum-entropy-probability-distributions-useful%3F" tabindex="-1">Why are maximum entropy probability distributions useful?</h2>
+<p>When given a choice of distributions to model the information known about a
+system, the Principle of Maximum Entropy tells us that the best distribution is
+the one with maximal entropy as it makes the least assumptions about the
+underlying system. Or, more eloquently,</p>
+<div class="card">
+    "...the principle of maximum entropy can be said to express
+    a claim of epistemic modesty, or of maximum ignorance. The selected
+    distribution is the one that makes the least claim to being informed beyond
+    the stated prior data, that is to say the one that admits the most ignorance
+    beyond the stated prior data." 
+    [<a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy" target="_blank" rel="noopener noreferrer">Wikipedia</a>] 
+</div>
+<p>It is for this reason that the uniform, normal, and other maximum entropy
+distributions make very good priors in Bayesian analysis.</p>
+<h2 id="deriving-the-maximum-entropy-probability-distribution-of-a-bounded-random-variable-with-no-additional-constraints" tabindex="-1">Deriving the maximum entropy probability distribution of a bounded random variable with no additional constraints</h2>
+<p>Before we tackle a constrained system, let's first derive the maximum entropy
+probability distribution for a system with no additional constraints. We say
+"additional" because all probability distributions are subject to the inherent
+constraint that they must sum to to 1 over their respective support (or else
+they would not be a probability distribution). That is, if <observablehq-loading></observablehq-loading><!--:2c2f5735:--> be a
+probability density function (PDF) over the variable <observablehq-loading></observablehq-loading><!--:11ae2428:--> with support between
+a given minimum <observablehq-loading></observablehq-loading><!--:8a6928ae:--> and maximum <observablehq-loading></observablehq-loading><!--:142c9965:-->, then</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c195ac56:--></div>
+<p>We also know the differential entropy <observablehq-loading></observablehq-loading><!--:44c28188:--> of the probability distribution to
+be defined as</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:3f2c3fd4:--></div>
+<p>To maximize the entropy of the PDF, we define the functional <observablehq-loading></observablehq-loading><!--:f8e65f8e:--> to include
+both the differential entropy and the known constraint.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:2709251b:--></div>
+<p>After rearranging the integrals as above, we can apply the Euler-Langrange
+equation to find the optimum of <observablehq-loading></observablehq-loading><!--:2c2f5735-1:-->.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:f6645a83:--></div>
+<p>Plugging this value of <observablehq-loading></observablehq-loading><!--:2c2f5735-2:--> back into our total probability constraint, we
+can eliminate <observablehq-loading></observablehq-loading><!--:8667469d:--> and show that the maximum entropy probability
+distribution for an unconstrained system over a finite region is the uniform distribution.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:72442fe7:--></div>
+<h2 id="deriving-the-maximum-entropy-probability-distribution-of-a-random-variable-with-a-fixed-mean-and-variance" tabindex="-1">Deriving the maximum entropy probability distribution of a random variable with a fixed mean and variance</h2>
+<p>Suppose we instead have a random variable with a fixed mean <observablehq-loading></observablehq-loading><!--:598b833e:--> and variance
+<observablehq-loading></observablehq-loading><!--:691ff5e5:--> with support over <observablehq-loading></observablehq-loading><!--:aafa486e:-->. Let's derive its maximum entropy
+probability distribution.</p>
+<p>The formulae for the total probability and differential entropy are the same as
+before.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c12e7f57:--></div>
+<p>However, this time we have the additional constraints of our mean and variance.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:70c2fe9d:--></div>
+<p>As before, we construct our functional <observablehq-loading></observablehq-loading><!--:f8e65f8e-1:-->, however this time with an
+additional Lagrange multiplier to account for our additional constraints. We can
+omit the constraint of the mean because entropy is invariant to translation.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:0c0f3047:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:4d8e1d93:--></div>
+<p>We apply the Euler-Langrange equation to the above functional to find the
+optimum of <observablehq-loading></observablehq-loading><!--:2c2f5735-3:-->.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:2905bcc5:--></div>
+<p>Applying our first constraint,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:0f322516:--></div>
+<p>And then applying the second constraint,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:337d0c78:--></div>
+<p>Combining and solving for <observablehq-loading></observablehq-loading><!--:c5eccde7:-->,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:e142ad7b:--></div>
+<p>Now plugging in to solve for <observablehq-loading></observablehq-loading><!--:c5504353:-->,</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:3ab4481f:--></div>
+<p>We now substitute our multipliers into our original definition of <observablehq-loading></observablehq-loading><!--:2c2f5735-4:--> and the
+PDF of the normal distribution appears, thus proving through derivation that the
+normal distribution is the maximum entropy distribution for a random variable
+with fixed mean and variance!</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c76a089c:--></div>
 </main>
 </div>

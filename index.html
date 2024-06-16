@@ -15,17 +15,27 @@
 
 import {define} from "./_observablehq/client.js";
 
-define({id: "a81dbc30", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
+define({id: "f3c6c3ea", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 let posts = [
   {
+    title: "The Chi-Squared Distribution and Its Connection to Discrete Data",
+    url: "./blog/chisquared",
+  },
+  {
+    title: "Maximum Entropy Probability Distributions",
+    url: "./blog/maxent",
+  },
+  {
+    title: "A Bayesian Solution to the Monty Hall Problem",
+    url: "./blog/montyhall",
+  },
+  {
     title: "An Introduction to Bayesian Inference with Binomial Data",
-    date: "July 9th, 2023",
     url: "./blog/betabin",
   },
   {
     title: "An Interesting Combinatorics Problem",
-    date: "June 17th, 2023",
     url: "./blog/combprob",
   },
 ];
@@ -57,11 +67,11 @@ return {zeroPad,posts,container};
 </aside>
 <div id="observablehq-center">
 <header id="observablehq-header">
-<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="./">Blog</a></span><span>Projects</span><span><a href="./publications">Publications</a></span></div></div>
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="./">Blog</a></span><span>Projects</span></div></div>
 </header>
 <main id="observablehq-main" class="observablehq">
 <h1 id="measured-uncertainty" tabindex="-1">Measured Uncertainty</h1>
 <h2 id="a-blog-about-computer-science-and-mathematics" tabindex="-1">a blog about computer science and mathematics</h2>
-<div class="observablehq observablehq--block"><!--:a81dbc30:--></div>
+<div class="observablehq observablehq--block"><!--:f3c6c3ea:--></div>
 </main>
 </div>
