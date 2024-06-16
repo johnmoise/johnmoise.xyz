@@ -96,12 +96,12 @@ F_Y(y) & = P(X^2\lt y) = P(-\sqrt{y}\lt X \lt \sqrt{y}) \\
 ))
 }});
 
-define({id: "0a2386f0", inputs: ["tex","display"], body: async (tex,display) => {
+define({id: "d11d5772", inputs: ["tex","display"], body: async (tex,display) => {
 display(await(
 tex.block`\begin{align*}
 f_Y(y) & = \frac{d}{dy}F_Y(y) \\
 & = \frac{d}{dy}\left[2F_X(\sqrt{y}) - 1\right] \\
-& = \frac{d}{dy}\left[2\int_{\infty}^{\sqrt{y}}\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt \right] \\
+& = \frac{d}{dy}\left[2\int_{-\infty}^{\sqrt{y}}\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt-1\right] \\
 & = \frac{1}{\sqrt{2\pi}}y^{-\frac{1}{2}}e^{-\frac{y}{2}}\\
 \end{align*}`
 ))
@@ -304,12 +304,6 @@ tex`\chi^2`
 ))
 }});
 
-define({id: "07ea1133-10", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
-display(await(
-tex`\chi^2`
-))
-}});
-
 define({id: "795b5447-2", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
 display(await(
 tex`X`
@@ -379,7 +373,7 @@ tex`X^2`
 ))
 }});
 
-define({id: "07ea1133-11", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+define({id: "07ea1133-10", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
 display(await(
 tex`\chi^2`
 ))
@@ -391,7 +385,7 @@ tex.block`X^2 = \sum_{i=1}^{n}\frac{(O_i-E_i)^2}{E_i}`
 ))
 }});
 
-define({id: "07ea1133-12", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+define({id: "07ea1133-11", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
 display(await(
 tex`\chi^2`
 ))
@@ -409,6 +403,12 @@ tex`E_i`
 ))
 }});
 
+define({id: "07ea1133-12", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\chi^2`
+))
+}});
+
 define({id: "07ea1133-13", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
 display(await(
 tex`\chi^2`
@@ -421,12 +421,6 @@ tex`\chi^2`
 ))
 }});
 
-define({id: "07ea1133-15", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
-display(await(
-tex`\chi^2`
-))
-}});
-
 </script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
@@ -434,7 +428,7 @@ tex`\chi^2`
 <ol>
 <li class="observablehq-secondary-link"><a href="#deriving-the-distribution-with-a-single-degree-of-freedom">Deriving the distribution with a single degree of freedom</a></li>
 <li class="observablehq-secondary-link"><a href="#deriving-the-distribution-with-arbitrary-degrees-of-freedom">Deriving the distribution with arbitrary degrees of freedom</a></li>
-<li class="observablehq-secondary-link"><a href="#applying-the-distribution">Applying the  distribution</a></li>
+<li class="observablehq-secondary-link"><a href="#connecting-the-continuous-and-discrete">Connecting the continuous and discrete</a></li>
 </ol>
 </nav>
 </aside>
@@ -462,7 +456,7 @@ variable is said to be <observablehq-loading></observablehq-loading><!--:07ea113
 <p>To derive the PDF of Y, we begin by defining the CDF <observablehq-loading></observablehq-loading><!--:caa4047c:--> which we then
 differentiate to find the PDF <observablehq-loading></observablehq-loading><!--:f030ad5e:-->.</p>
 <div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:9c893c7e:--></div>
-<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:0a2386f0:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:d11d5772:--></div>
 <h2 id="deriving-the-distribution-with-arbitrary-degrees-of-freedom" tabindex="-1">Deriving the distribution with arbitrary degrees of freedom</h2>
 <p>Now let's derive the PDF of the distribution with <observablehq-loading></observablehq-loading><!--:643c39c0:--> degrees of freedom.
 We begin by defining the random variable <observablehq-loading></observablehq-loading><!--:9919e91a-1:--> to be the sum of <observablehq-loading></observablehq-loading><!--:643c39c0-1:-->
@@ -486,12 +480,12 @@ radius <observablehq-loading></observablehq-loading><!--:d598b091:--> times the 
 <p>which implies</p>
 <div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:562e01d0:--></div>
 <p>which is the PDF of the <observablehq-loading></observablehq-loading><!--:07ea1133-5:--> distribution with <observablehq-loading></observablehq-loading><!--:643c39c0-3:--> degrees of freedom!</p>
-<h2 id="applying-the-distribution" tabindex="-1">Applying the <observablehq-loading></observablehq-loading><!--:07ea1133-6:--> distribution</h2>
-<p>The <observablehq-loading></observablehq-loading><!--:07ea1133-7:--> distribution is used primarily in hypothesis testing, most
+<h2 id="connecting-the-continuous-and-discrete" tabindex="-1">Connecting the continuous and discrete</h2>
+<p>The <observablehq-loading></observablehq-loading><!--:07ea1133-6:--> distribution is used primarily in hypothesis testing, most
 commonly in tests such as</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Pearson's_$%7Btex%60%5Cchi%5E2%60%7D_test#Test_for_fit_of_a_distribution" target="_blank" rel="noopener noreferrer"><observablehq-loading></observablehq-loading><!--:07ea1133-8:--> test of goodness of fit</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Pearson's_$%7Btex%60%5Cchi%5E2%60%7D_test#Testing_for_statistical_independence" target="_blank" rel="noopener noreferrer"><observablehq-loading></observablehq-loading><!--:07ea1133-9:--> test of independence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pearson's_$%7Btex%60%5Cchi%5E2%60%7D_test#Test_for_fit_of_a_distribution" target="_blank" rel="noopener noreferrer"><observablehq-loading></observablehq-loading><!--:07ea1133-7:--> test of goodness of fit</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pearson's_$%7Btex%60%5Cchi%5E2%60%7D_test#Testing_for_statistical_independence" target="_blank" rel="noopener noreferrer"><observablehq-loading></observablehq-loading><!--:07ea1133-8:--> test of independence</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cochran%E2%80%93Mantel%E2%80%93Haenszel_statistics" target="_blank" rel="noopener noreferrer">Cochran-Mantel-Haenszel test for stratified data</a></li>
 </ul>
 <p>However, given that the distribution is continuous, I always thought it odd that
@@ -500,7 +494,7 @@ data (such as those in contingency tables). It turns out that this use for
 discrete data is founded on the very same reasoning that one uses to approximate
 the normal distribution with the binomial distribution.</p>
 <p>To show why Pearson was able to establish methods of hypothesis testing with
-discrete data using the <observablehq-loading></observablehq-loading><!--:07ea1133-10:--> distribution, we first begin by defining the
+discrete data using the <observablehq-loading></observablehq-loading><!--:07ea1133-9:--> distribution, we first begin by defining the
 following random variable <observablehq-loading></observablehq-loading><!--:795b5447-2:--> as follows:</p>
 <div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:beb7e92b:--></div>
 <p>The right-hand side of the above equation, which derives from a binomial
@@ -509,20 +503,20 @@ of success, and <observablehq-loading></observablehq-loading><!--:88e990b7:--> p
 and Laplace to be asymptotically normal.</p>
 <p>Squaring both sides of the equation and substituting <observablehq-loading></observablehq-loading><!--:75b47bd8:--> and <observablehq-loading></observablehq-loading><!--:5b53b306:-->, we receive</p>
 <div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c8fe3ed0:--></div>
-<p>Since <observablehq-loading></observablehq-loading><!--:795b5447-3:--> is asymptotically normal, <observablehq-loading></observablehq-loading><!--:f8daa8c2:--> asymptotically follows the <observablehq-loading></observablehq-loading><!--:07ea1133-11:-->
+<p>Since <observablehq-loading></observablehq-loading><!--:795b5447-3:--> is asymptotically normal, <observablehq-loading></observablehq-loading><!--:f8daa8c2:--> asymptotically follows the <observablehq-loading></observablehq-loading><!--:07ea1133-10:-->
 distribution. The above derivation only works for binomial systems, but using a
 <a href="https://math.stackexchange.com/questions/2859095/approximating-a-multinomial-as-p-xi-1-ldots-xi-n-propto-exp-left-fracn" target="_blank" rel="noopener noreferrer">higher dimensional version of the same
 argument</a>,
 the final expression can be generalized to the form</p>
 <div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:b61cd358:--></div>
-<p>which is the form that Pearson arrived at when establishing his <observablehq-loading></observablehq-loading><!--:07ea1133-12:-->
+<p>which is the form that Pearson arrived at when establishing his <observablehq-loading></observablehq-loading><!--:07ea1133-11:-->
 test (wherein <observablehq-loading></observablehq-loading><!--:ce2eaf94:--> and <observablehq-loading></observablehq-loading><!--:7d2b419a:--> correspond to the observed and expected
 frequencies for each of the categorical outcomes). So, in effect, every time we are applying
-a <observablehq-loading></observablehq-loading><!--:07ea1133-13:--> test to discrete data, whether it be in a contingency table or
+a <observablehq-loading></observablehq-loading><!--:07ea1133-12:--> test to discrete data, whether it be in a contingency table or
 in counts of outcomes, we are using a generalized form of the de Moivre-Laplace
 theorem as the connection between the discrete and continuous. This is why
-<observablehq-loading></observablehq-loading><!--:07ea1133-14:--> tests should not be applied in systems with limited data, as the
-low counts make for a poor approximation of the <observablehq-loading></observablehq-loading><!--:07ea1133-15:--> distribution
+<observablehq-loading></observablehq-loading><!--:07ea1133-13:--> tests should not be applied in systems with limited data, as the
+low counts make for a poor approximation of the <observablehq-loading></observablehq-loading><!--:07ea1133-14:--> distribution
 (just as a binomial system with low counts poorly approximates the normal).</p>
 </main>
 </div>

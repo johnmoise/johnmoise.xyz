@@ -15,9 +15,13 @@
 
 import {define} from "./_observablehq/client.js";
 
-define({id: "f3c6c3ea", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
+define({id: "b4b3bc49", inputs: ["display"], outputs: ["zeroPad","posts","container"], body: (display) => {
 const zeroPad = (num, places) => String(num).padStart(places, "0");
 let posts = [
+  // {
+  //   title: "Plots",
+  //   url: "./blog/plots",
+  // },
   {
     title: "The Chi-Squared Distribution and Its Connection to Discrete Data",
     url: "./blog/chisquared",
@@ -72,6 +76,6 @@ return {zeroPad,posts,container};
 <main id="observablehq-main" class="observablehq">
 <h1 id="measured-uncertainty" tabindex="-1">Measured Uncertainty</h1>
 <h2 id="a-blog-about-computer-science-and-mathematics" tabindex="-1">a blog about computer science and mathematics</h2>
-<div class="observablehq observablehq--block"><!--:f3c6c3ea:--></div>
+<div class="observablehq observablehq--block"><!--:b4b3bc49:--></div>
 </main>
 </div>

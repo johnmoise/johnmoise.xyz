@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>plots | John Moïse</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_node/lodash@4.17.21/range.js">
+<link rel="modulepreload" href="../_node/lodash@4.17.21/map.js">
+<link rel="modulepreload" href="../_npm/@observablehq/plot@0.6.15/_esm.js">
+<link rel="modulepreload" href="../_npm/d3@7.9.0/_esm.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/_esm.js">
+<link rel="modulepreload" href="../_npm/interval-tree-1d@1.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-array@3.2.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-color@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-force@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-format@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-geo@3.1.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-path@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-random@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/binary-search-bounds@2.0.5/_esm.js">
+<link rel="modulepreload" href="../_npm/internmap@2.0.3/_esm.js">
+<link rel="modulepreload" href="../_npm/delaunator@5.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/_esm.js">
+<link rel="icon" href="../_file/favicon.2e0bf1ca.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "8b320200", inputs: ["Plot","display"], outputs: ["range","map","norm","xvalues","arr","plt"], body: async (Plot,display) => {
+const [{default: range}, {default: map}] = await Promise.all([import("../_node/lodash@4.17.21/range.js"), import("../_node/lodash@4.17.21/map.js")]);
+function norm(x) {
+  return {
+    xval: x,
+    yval: Math.pow(2 * Math.PI, -0.5) * Math.exp(-0.5 * Math.pow(x, 2)),
+  };
+}
+let xvalues = range(-4, 4, 0.05);
+let arr = map(xvalues, norm);
+let plt = Plot.line(arr, { x: "xval", y: "yval" }).plot();
+display(plt);
+return {range,map,norm,xvalues,arr,plt};
+}});
+
+define({id: "f0a2524f", inputs: ["Plot","display"], outputs: ["range","map","xmin","xmax","wiggleroom","norm","xvalues","arr","filtered","plt"], body: async (Plot,display) => {
+const [{default: range}, {default: map}] = await Promise.all([import("../_node/lodash@4.17.21/range.js"), import("../_node/lodash@4.17.21/map.js")]);
+let xmin = -2;
+let xmax = 2;
+let wiggleroom = 0.0000005;
+function norm(x) {
+  return {
+    xval: x,
+    yval: Math.pow(2 * Math.PI, -0.5) * Math.exp(-0.5 * Math.pow(x, 2)),
+  };
+}
+let xvalues = range(-4, 4, 0.05);
+let arr = map(xvalues, norm);
+let filtered = arr.filter((obj) => {
+  return obj.xval >= xmin - wiggleroom && obj.xval <= xmax + wiggleroom;
+});
+let plt = Plot.plot({
+  marks: [
+    Plot.line(arr, { x: "xval", y: "yval" }),
+    Plot.areaY(filtered, { x: "xval", y: "yval", fillOpacity: 0.3 }),
+  ],
+});
+display(plt);
+return {range,map,xmin,xmax,wiggleroom,norm,xvalues,arr,filtered,plt};
+}});
+
+</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>On This Page</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#a-normal-distribution">A Normal Distribution</a></li>
+<li class="observablehq-secondary-link"><a href="#a-shaded-normal-distribution">A Shaded Normal Distribution</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; justify-content: space-between; align-items: middle; gap: 1rem; padding: 1rem 1.5rem; margin: -2rem -1rem 2rem -1rem; border-bottom: solid 1px var(--theme-foreground-faintest)"><div style="display: flex; gap: 1rem; font-size: 20px;"><span>John Moïse</span></div><div style="display:inline-flex;align-items:center; gap: 1rem; font-size: 16px; vertical-align: middle;"><span><a href="../">Blog</a></span><span>Projects</span></div></div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="plots" tabindex="-1">Plots</h1>
+<h2 id="last-updated%3A-june-16th%2C-2024" tabindex="-1">Last Updated: June 16th, 2024</h2>
+<h2 id="a-normal-distribution" tabindex="-1">A Normal Distribution</h2>
+<div class="observablehq observablehq--block"><!--:8b320200:--></div>
+<h2 id="a-shaded-normal-distribution" tabindex="-1">A Shaded Normal Distribution</h2>
+<div class="observablehq observablehq--block"><!--:f0a2524f:--></div>
+</main>
+</div>
